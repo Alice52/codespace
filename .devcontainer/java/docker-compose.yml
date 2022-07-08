@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # variable used by dockerfile
+      args:
+        VARIANT: 'buster'
+        INSTALL_MAVEN: 'true'
+    volumes:
+      # This is where VS Code should expect to find your project's source code
+      # and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      - ..:/workspace:cached
+      # Uncomment the next line to use Docker from inside the container.
+      # See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
+      - /var/run/docker.sock:/var/run/docker.sock
+    # notice: hangup the image for service.
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    # command: sleep infinity
+
+    # Runs app on the same network as the service container,
+    # allows "forwardPorts" in devcontainer.json function.
+    network_mode: service:mongo-dev
+
+    # forwardPorts must config in in devcontainer.json
+
+    # Uncomment the next line to use a non-root user for all processes
+    # user: vscode
+  mongo-dev:
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+    # Uncomment to change startup options
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: testing
+
+volumes:
+  mongodb-data:

@@ -1,0 +1,74 @@
+{
+    "name": "java-with-mongo",
+    // Update the 'dockerComposeFile' list if you have more compose files or use different names.
+    "dockerComposeFile": "docker-compose.yml",
+    // The 'service' property is the name of the service for the container that VS Code should
+    // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+    "service": "app",
+    // The optional 'workspaceFolder' property is the path VS Code should open by default when
+    // connected. This is typically a volume mount in .devcontainer/docker-compose.yml
+    "workspaceFolder": "/workspace",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {},
+    // Add the IDs of extensions you want installed when the container is created.
+    "customizations": {
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "markdown.preview.fontFamily": "'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+                "markdownFormatter.formatOpt": {
+                    "indent_size": 2
+                },
+                "[markdown]": {
+                    // 自动保存
+                    "editor.formatOnSave": true,
+                    // 显示空格
+                    "editor.renderWhitespace": "all",
+                    // 快速补全
+                    "editor.quickSuggestions": {
+                        "other": true,
+                        "comments": true,
+                        "strings": true
+                    },
+                    // snippet 提示优先
+                    "editor.snippetSuggestions": "top",
+                    "editor.tabCompletion": "on",
+                    // 使用enter 接受提示
+                    "editor.acceptSuggestionOnEnter": "on",
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "java.import.gradle.java.home": "/usr/local/sdkman/candidates/java/current",
+                "java.configuration.runtimes": [
+                    {
+                        "default": true,
+                        "name": "JavaSE-1.8",
+                        "path": "/usr/local/sdkman/candidates/java/current"
+                    }
+                ]
+            },
+            "extensions": [
+                "mongodb.mongodb-vscode",
+                "vscjava.vscode-java-pack",
+                "eamodio.gitlens",
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "PKief.material-icon-theme",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        8080,
+        27017
+    ],
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+    // Uncomment the next line to use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "uname -a",
+    // Comment out to connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode",
+    "features": {
+        "docker-from-docker": "20.10"
+    }
+}
