@@ -15,6 +15,10 @@
         "vscode": {
             // Set *default* container specific settings.json values on container create.
             "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.fontFamily": "\"Fira Mono for Powerline\"",
+                "terminal.integrated.fontSize": 13,
+                "terminal.integrated.fontWeight": "500",
                 "markdown.preview.fontFamily": "'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
                 "markdownFormatter.formatOpt": {
                     "indent_size": 2
