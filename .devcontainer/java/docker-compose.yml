@@ -24,7 +24,7 @@ services:
       - mysql-v8
     # Runs app on the same network as the service container,
     # allows "forwardPorts" in devcontainer.json function.
-    network_mode: service:mongo-dev
+    # network_mode: service:mongo-dev
 
     # forwardPorts must config in in devcontainer.json
 
@@ -33,7 +33,6 @@ services:
   mongo-dev:
     image: mongo:latest
     restart: unless-stopped
-    network_mode: service:mysql-v8
     ports:
       - 27017:27017
     volumes:
