@@ -19,7 +19,9 @@ services:
     # notice: hangup the image for service.
     command: /bin/sh -c "while sleep 1000; do :; done"
     # command: sleep infinity
-
+    depends_on:
+      - mongo-dev
+      - mysql-v8
     # Runs app on the same network as the service container,
     # allows "forwardPorts" in devcontainer.json function.
     network_mode: service:mongo-dev
@@ -31,6 +33,7 @@ services:
   mongo-dev:
     image: mongo:latest
     restart: unless-stopped
+    network_mode: service:mysql-v8
     ports:
       - 27017:27017
     volumes:
@@ -42,5 +45,26 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
       MONGO_INITDB_DATABASE: testing
 
+  mysql-v8:
+    image: mysql:8.0
+    restart: 'on-failure:3'
+    container_name: dev-v8
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/log/mysql
+    command: --skip-innodb-adaptive-hash-index
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M
+      --sql-mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      TZ: Asia/Shanghai
+
 volumes:
   mongodb-data:
+  mysql-data:
