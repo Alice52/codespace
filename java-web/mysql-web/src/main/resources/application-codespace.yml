@@ -4,6 +4,6 @@ spring:
   # 数据库连接配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql-v8:3306/flyway-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true
+    url: jdbc:mysql://mysql-v8:3306/codespaces?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     username: root
     password: ${DB_PASSWORD}
