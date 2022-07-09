@@ -1,0 +1,18 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS MODIFY_COLUMN $$
+CREATE PROCEDURE MODIFY_COLUMN()
+BEGIN
+
+TRUNCATE TABLE `boot_cache_all_star_phase`;
+
+    INSERT INTO `boot_cache_all_star_phase`(`id`,`phase_code`,`phase_name`,`start_time`,`end_time`,`type`,`status`,`is_deleted`,`inserted_by`,`updated_by`,`inserted_time`,`updated_time`)
+      VALUES
+        ( 1, 'WARM_UP', '预热', '2021-04-10 00:00:00.000', '2021-04-20 00:00:00.000', NULL, NULL, 0, NULL, NULL, '2021-04-06 11:54:06.382', '2021-04-07 10:14:23.844'),
+        ( 2, 'START_UP', '启动', '2021-04-20 00:00:00.000', '2021-04-30 00:00:00.000', NULL, NULL, 0, NULL, NULL, '2021-04-06 11:54:06.516', '2021-04-07 10:14:45.812'),
+        ( 3, 'RESTAURANT_COMPETITION', '餐厅比拼', '2021-04-30 00:00:00.000', '2021-05-10 00:00:00.000', NULL, NULL, 0, NULL, NULL, '2021-04-06 11:54:06.517', '2021-04-07 10:15:02.068'),
+        (4, 'ONLINE_PK', '线上pk', '2021-05-10 00:00:00.000', '2021-05-20 00:00:00.000', NULL, NULL, 0, NULL, NULL, '2021-04-06 11:54:06.517', '2021-04-07 10:15:37.430'),
+        (5, 'SUMMARY', '总结', '2021-05-20 00:00:00.000', '2021-05-30 00:00:00.000', NULL, NULL, 0, NULL, NULL, '2021-04-06 18:11:58.241', '2021-04-07 10:16:01.563');
+
+END $$ DELIMITER;
+CALL MODIFY_COLUMN;
+DROP PROCEDURE MODIFY_COLUMN;

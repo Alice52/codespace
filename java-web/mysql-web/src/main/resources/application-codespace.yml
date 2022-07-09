@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include: common
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-v8:3306/flyway-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true
+    username: root
+    password: ${DB_PASSWORD}

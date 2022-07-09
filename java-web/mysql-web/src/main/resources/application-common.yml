@@ -1,0 +1,28 @@
+spring:
+  flyway:
+    # 是否启用flyway
+    enabled: true
+    clean-disabled: true
+    # 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建schema_version表
+    baseline-on-migrate: true
+
+# mybatis-plus
+mybatis-plus:
+  # typeEnumsPackage: boot.mybatis.common.constants.enums
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: AUTO
+      field-strategy: NOT_NULL
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+
+logging:
+  level:
+    org.flywaydb.*: debug
