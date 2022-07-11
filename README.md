@@ -1,6 +1,6 @@
 ## build codespace for languages
 
-### java 8
+### java 9
 
 1. with docker-compose
 2. if image not os, please hangup container for running service
