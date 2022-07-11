@@ -1,7 +1,6 @@
 ## build codespace for languages
 
-### java 10
-
+### java 11
 ### python 11
 
 1. with docker-compose
