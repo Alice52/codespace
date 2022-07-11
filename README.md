@@ -1,9 +1,7 @@
 ## build codespace for languages
 
-### java 10
-
+### java 9
 ### python 11
-
 1. with docker-compose
 2. if image not os, please hangup container for running service
 
