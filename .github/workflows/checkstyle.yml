@@ -16,6 +16,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # checkstyle_config: ./style/google_checks.xml
         level: error
-        filter_mode: file
+        filter_mode: added
         reporter: 'github-check'
         tool_name: 'reviewdog'
