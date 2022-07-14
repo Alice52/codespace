@@ -21,42 +21,42 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 public class R<T> implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    private int code = 0;
-    private String msg = "success";
-    private T data;
+  private int code = 0;
+  private String msg = "success";
+  private T data;
 
-    public R() {
-        super();
-    }
+  public R() {
+    super();
+  }
 
-    public R(T data) {
-        super();
-        this.data = data;
-    }
+  public R(T data) {
+    super();
+    this.data = data;
+  }
 
-    public R(T data, String msg) {
-        super();
-        this.data = data;
-        this.msg = msg;
-    }
+  public R(T data, String msg) {
+    super();
+    this.data = data;
+    this.msg = msg;
+  }
 
-    public R(Throwable e) {
-        super();
-        this.msg = e.getMessage();
-        this.code = 1;
-    }
+  public R(Throwable e) {
+    super();
+    this.msg = e.getMessage();
+    this.code = 1;
+  }
 
-    @NotNull
-    public static <T> R<T> success(@Nullable T data) {
+  @NotNull
+  public static <T> R<T> success(@Nullable T data) {
 
-        return R.<T>builder().msg("success").data(data).build();
-    }
+    return R.<T>builder().msg("success").data(data).build();
+  }
 
-    @NotNull
-    public static <T> R<T> success() {
+  @NotNull
+  public static <T> R<T> success() {
 
-        return R.<T>builder().msg("success").build();
-    }
+    return R.<T>builder().msg("success").build();
+  }
 }

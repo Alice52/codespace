@@ -25,12 +25,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/custom")
 public class PhaseController {
-    @Resource private PhaseService phaseService;
+  @Resource private PhaseService phaseService;
 
-    @GetMapping("/phases")
-    public R<List<Phase>> list(
-            @RequestParam(value = "type", required = false) @ApiParam(value = "活动标识") String type) {
+  @GetMapping("/phases")
+  public R<List<Phase>> list(
+      @RequestParam(value = "type", required = false) @ApiParam(value = "活动标识") String type) {
 
-        return R.success(phaseService.listPhases(type));
-    }
+      return R.success(phaseService.listPhases(type));
+  }
 }

@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 
 @Data
 public class PlainEntity implements Serializable {
-    protected static final long serialVersionUID = 1L;
+  protected static final long serialVersionUID = 1L;
 
-    @TableLogic private Boolean isDeleted;
+  @TableLogic private Boolean isDeleted;
 
-    private LocalDateTime insertedTime;
+  private LocalDateTime insertedTime;
 
-    private Long insertedBy;
+  private Long insertedBy;
 }
