@@ -1,5 +1,6 @@
 on:
   pull_request:
+    branches: mastser
   push:
 
 jobs:
@@ -13,5 +14,8 @@ jobs:
       uses: nikitasavinov/checkstyle-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        checkstyle_config: ./style/google_checks.xml
+        level: info
+        filter_mode: file
         reporter: 'github-pr-check'
         tool_name: 'testtool'
