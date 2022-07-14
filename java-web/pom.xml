@@ -29,7 +29,7 @@
         <flyway.version>6.1.0</flyway.version>
 
         <swagger.fox.version>2.9.2</swagger.fox.version>
-        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <hutool.all.version>5.4.7</hutool.all.version>
         <jasypt.encrtpy.version>3.0.2</jasypt.encrtpy.version>
 
