@@ -17,5 +17,5 @@ jobs:
         CHECKSTYLE_CONFIG: ./style/google_checks.xml
         level: info
         filter_mode: file
-        reporter: 'github-pr-check'
+        reporter: 'github-check'
         tool_name: 'testtool'
