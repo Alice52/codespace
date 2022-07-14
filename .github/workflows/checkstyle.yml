@@ -17,5 +17,5 @@ jobs:
         # checkstyle_config: ./style/google_checks.xml
         level: info
         filter_mode: file
-        reporter: 'github-pr-check'
-        tool_name: 'testtool'
+        reporter: 'github-check'
+        tool_name: 'reviewdog'
