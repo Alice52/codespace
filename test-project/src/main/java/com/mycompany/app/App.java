@@ -5,9 +5,10 @@
 
 package com.mycompany.app;
 
+import java.util.ArrayList;
 import static javax.xml.XMLConstants.XML_NS_PREFIX;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
