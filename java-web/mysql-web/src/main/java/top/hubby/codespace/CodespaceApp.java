@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CodespaceApp {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        SpringApplication.run(CodespaceApp.class, args);
-    }
+    SpringApplication.run(CodespaceApp.class, args);
+  }
 }

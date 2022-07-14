@@ -17,56 +17,56 @@ import java.util.Optional;
 @Validated
 public interface PhaseService extends IService<Phase> {
 
-    /**
-     * 获取所有阶段信息
-     *
-     * @param type 标识具体活动
-     * @return
-     */
-    List<Phase> listPhases(String type);
+  /**
+   * 获取所有阶段信息
+   *
+   * @param type 标识具体活动
+   * @return
+   */
+  List<Phase> listPhases(String type);
 
-    /**
-     * Get Phase According By Condition.
-     *
-     * @param entity
-     * @return
-     */
-    default Phase getByCondition(Phase entity) {
-        LambdaQueryWrapper<Phase> queryWrapper = buildQueryWrapper();
+  /**
+   * Get Phase According By Condition.
+   *
+   * @param entity
+   * @return
+   */
+  default Phase getByCondition(Phase entity) {
+    LambdaQueryWrapper<Phase> queryWrapper = buildQueryWrapper();
 
-        Optional.ofNullable(entity.getId())
-                .ifPresent(t -> queryWrapper.eq(Phase::getId, entity.getId()));
-        Optional.ofNullable(entity.getType())
-                .ifPresent(t -> queryWrapper.eq(Phase::getType, entity.getType()));
-        Optional.ofNullable(entity.getPhaseCode())
-                .ifPresent(t -> queryWrapper.eq(Phase::getPhaseCode, entity.getPhaseCode()));
-        Optional.ofNullable(entity.getPhaseName())
-                .ifPresent(t -> queryWrapper.eq(Phase::getPhaseName, entity.getPhaseName()));
+    Optional.ofNullable(entity.getId())
+        .ifPresent(t -> queryWrapper.eq(Phase::getId, entity.getId()));
+    Optional.ofNullable(entity.getType())
+        .ifPresent(t -> queryWrapper.eq(Phase::getType, entity.getType()));
+    Optional.ofNullable(entity.getPhaseCode())
+        .ifPresent(t -> queryWrapper.eq(Phase::getPhaseCode, entity.getPhaseCode()));
+    Optional.ofNullable(entity.getPhaseName())
+        .ifPresent(t -> queryWrapper.eq(Phase::getPhaseName, entity.getPhaseName()));
 
-        queryWrapper.last("LIMIT 1");
+    queryWrapper.last("LIMIT 1");
 
-        return this.getOne(queryWrapper);
-    }
+    return this.getOne(queryWrapper);
+  }
 
-    /**
-     * Build Query Wrapper.
-     *
-     * @return
-     */
-    default LambdaQueryWrapper<Phase> buildQueryWrapper() {
-        return buildQueryWrapper(null);
-    }
+  /**
+   * Build Query Wrapper.
+   *
+   * @return
+   */
+  default LambdaQueryWrapper<Phase> buildQueryWrapper() {
+    return buildQueryWrapper(null);
+  }
 
-    /**
-     * Build Query One Wrapper.
-     *
-     * @param type
-     * @return
-     */
-    default LambdaQueryWrapper<Phase> buildQueryWrapper(String type) {
-        LambdaQueryWrapper<Phase> queryWrapper = Wrappers.<Phase>query().lambda();
-        Optional.ofNullable(type).ifPresent(t -> queryWrapper.eq(Phase::getType, type));
+  /**
+   * Build Query One Wrapper.
+   *
+   * @param type
+   * @return
+   */
+  default LambdaQueryWrapper<Phase> buildQueryWrapper(String type) {
+    LambdaQueryWrapper<Phase> queryWrapper = Wrappers.<Phase>query().lambda();
+    Optional.ofNullable(type).ifPresent(t -> queryWrapper.eq(Phase::getType, type));
 
-        return queryWrapper;
-    }
+    return queryWrapper;
+  }
 }

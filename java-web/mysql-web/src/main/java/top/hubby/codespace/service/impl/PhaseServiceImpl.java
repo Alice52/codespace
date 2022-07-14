@@ -17,15 +17,15 @@ import java.util.List;
 @Service
 public class PhaseServiceImpl extends ServiceImpl<PhaseMapper, Phase> implements PhaseService {
 
-    @Override
-    public List<Phase> listPhases(String type) {
+  @Override
+  public List<Phase> listPhases(String type) {
 
-        return getPhases(type);
-    }
+    return getPhases(type);
+  }
 
-    private List<Phase> getPhases(String type) {
-        LambdaQueryWrapper<Phase> queryWrapper = buildQueryWrapper(type);
+  private List<Phase> getPhases(String type) {
+    LambdaQueryWrapper<Phase> queryWrapper = buildQueryWrapper(type);
 
-        return this.list(queryWrapper);
-    }
+    return this.list(queryWrapper);
+  }
 }

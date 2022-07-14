@@ -23,20 +23,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Phase extends BaseEntity {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.AUTO)
-    private Long id;
+  @TableId(type = IdType.AUTO)
+  private Long id;
 
-    private String phaseCode;
+  private String phaseCode;
 
-    private String phaseName;
+  private String phaseName;
 
-    private LocalDateTime startTime;
+  private LocalDateTime startTime;
 
-    private LocalDateTime endTime;
+  private LocalDateTime endTime;
 
-    @TableField private String type;
+  @TableField private String type;
 
-    private String status;
+  private String status;
 }

@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 
 @Data
 public class SimpleEntity implements Serializable {
-    protected static final long serialVersionUID = 1L;
+  protected static final long serialVersionUID = 1L;
 
-    @TableLogic private Boolean isDeleted;
+  @TableLogic private Boolean isDeleted;
 
-    @TableField(value = "inserted_time", fill = FieldFill.INSERT)
-    private LocalDateTime insertedTime;
+  @TableField(value = "inserted_time", fill = FieldFill.INSERT)
+  private LocalDateTime insertedTime;
 
-    @TableField(value = "updated_time", fill = FieldFill.UPDATE)
-    private LocalDateTime updatedTime;
+  @TableField(value = "updated_time", fill = FieldFill.UPDATE)
+  private LocalDateTime updatedTime;
 }
