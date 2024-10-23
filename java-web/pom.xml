@@ -23,7 +23,7 @@
         <spring.boot.version>2.5.12</spring.boot.version>
 
         <mysql.version>8.0.29</mysql.version>
-        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <mybatis.plus.version>3.5.9</mybatis.plus.version>
         <mybatis.plus.extension>3.3.1</mybatis.plus.extension>
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
         <flyway.version>9.0.1</flyway.version>
